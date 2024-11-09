@@ -41,7 +41,7 @@ def end_spark(spark):
     return "stopped spark session"
 
 def extract(
-    url="https://raw.githubusercontent.com/nogibjj/Mini_PJT_10_Introduction_to_PySpark/refs/heads/main/Data/HR_Analytics.csv",
+    url="https://raw.githubusercontent.com/nogibjj/Mini_PJT_10_Introduction_to_PySpark_ISL/refs/heads/main/Data/HR_Analytics.csv",
     file_path="Data/HR_Analytics.csv",
     directory="Data",
 ):
