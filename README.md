@@ -42,4 +42,4 @@
 * [PySpark Output File](pyspark_output.md)
 
 ### Remarks
-* Both `lib.py` and `main.py` generated logs. However, because the same process was repeated in `main.py`, this caused partial duplication in the log. To address this, the log now only records actions from `main.py`, and previous logs are deleted whenever `main.py` runs, ensuring a fresh log file is created each time.
+* Both `lib.py` and `main.py` generated logs. However, because the same process was repeated in `main.py`, this caused partial duplication in the log. To address this, `main.py`, deleted previous and rewrite the log.
