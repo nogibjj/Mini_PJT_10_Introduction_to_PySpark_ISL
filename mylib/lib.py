@@ -6,13 +6,12 @@ import requests
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import when, col
 
-from pyspark.sql.types import (
-     StructType, 
-     StructField, 
-     IntegerType, 
-     StringType, 
-     DateType
-)
+# from pyspark.sql.types import(
+#      StructType, 
+#      StructField, 
+#      IntegerType, 
+#      StringType, 
+#      DateType)
 
 LOG_FILE = "pyspark_output.md"
 
@@ -54,7 +53,8 @@ def load_data(spark, data="Data/HR_1.csv", name="HR_Attrition"):
     """Load entire CSV and then select required columns"""
     df = spark.read.option("header", "true") \
                    .csv(data)
-    df = df.select("EmployeeNumber", "Age", "Attrition", "Department", "Education", "EducationField", "EmployeeCount")
+    df = df.select("EmployeeNumber", "Age", "Attrition", "Department", 
+                   "Education", "EducationField", "EmployeeCount")
     log_output("load data", df.limit(10).toPandas().to_markdown())
     return df
 
@@ -74,7 +74,8 @@ def describe(df):
     return df.describe().show()
 
 def example_transform(df):
-    """Transforms the HR_Attrition dataset by adding Attrition_Flag, Department_Code, and EducationField_Code columns."""
+    """Transforms the HR_Attrition dataset by adding Attrition_Flag, 
+    Department_Code, and EducationField_Code columns."""
     
     df = df.withColumn(
         "Attrition_Flag",
