@@ -13,7 +13,7 @@
 
 ### Requirements
 
-* ***Use PySpark to perform data processing on a large dataset**
+* ***Use PySpark to perform data processing on a large dataset***
 * ***Include at least one Spark SQL query and on data transformation***
 
 ### Deliverables
