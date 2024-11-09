@@ -10,36 +10,35 @@ from mylib.lib import (
     describe,
     example_transform,
     log_output,
+    reset_log,  # reset_log
 )
 
+
 def main():
-    extract()  # Download data file
+    reset_log()  # Clear log at the beginning to avoid duplication
 
-    spark = start_spark("HR_Attrition")  # Start Spark session
+    extract()
 
-    df = load_data(spark)  # Load data into a DataFrame
+    spark = start_spark("HR_Attrition")
 
-    describe(df)  # Show summary statistics
+    df = load_data(spark)
+    describe(df)
 
-    # Run and log queries for Attrition 'Yes' and 'No' values separately
     run_query(spark, df, "Yes")
     run_query(spark, df, "No")
 
-    example_transform(df)  # Transform data and add new columns
-
-    end_spark(spark)  # Stop Spark session
+    example_transform(df)
+    end_spark(spark)
 
 
 def run_query(spark, df, attrition_value):
     """Filter by Attrition value and log the results."""
-    # Create a temporary SQL view
+
     df.createOrReplaceTempView("HR_Attrition")
 
-    # Run SQL query for the given Attrition value
     query = f"SELECT * FROM HR_Attrition WHERE Attrition = '{attrition_value}'"
     result = spark.sql(query)
 
-    # Log and print the results
     log_output(
         f"Results for Attrition = '{attrition_value}'",
         result.toPandas().to_markdown(),

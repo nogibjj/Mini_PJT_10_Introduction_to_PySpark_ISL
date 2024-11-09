@@ -2,7 +2,7 @@
 ## Mini Project 10 : Introduction_to_PySpark
 
 #### Status(CI/CD) badge 
-
+[![CICD](https://github.com/nogibjj/Mini_PJT_10_Introduction_to_PySpark/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Mini_PJT_10_Introduction_to_PySpark/actions/workflows/cicd.yml)
 
 ---------
 ### Proejct Purpose
@@ -26,7 +26,7 @@
 ### Preperation
 * Run 'Codespaces'  
 * Setup 'Pyspark' operation environment
-* Dataset : IBM이 제공하는 [Employee Attrition data](Data/HR_1.csv)
+* Dataset :[Employee Attrition data](Data/HR_1.csv) provided by IBM
 
 ### Process
 
@@ -37,5 +37,9 @@
 * `query` : Operates SQL query on the dataset using Spark SQL, based on Attrition values ('Yes', 'No')
 * `example_transform` : transforms the dataset by indexing categorical variables as intergers
 
+
 ### Console log file
 * [PySpark Output File](pyspark_output.md)
+
+### Remarks
+* Both `lib.py` and `main.py` generated logs. However, because the same process was repeated in `main.py`, this caused partial duplication in the log. To address this, the log now only records actions from `main.py`, and previous logs are deleted whenever `main.py` runs, ensuring a fresh log file is created each time.

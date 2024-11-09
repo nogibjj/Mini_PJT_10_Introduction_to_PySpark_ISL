@@ -23,6 +23,7 @@ deploy:
 	#deploy goes here
 		
 all: install lint test format deploy
+	python main.py
 
 generate_and_push:
 	# Add, commit, and push the generated files to GitHub

@@ -15,6 +15,11 @@ from pyspark.sql.functions import when, col
 
 LOG_FILE = "pyspark_output.md"
 
+def reset_log(): # delete duplicated log
+    """Clears the log file at the beginning of each run."""
+    with open(LOG_FILE, "w") as file:
+        file.write("# PySpark Operation Logs\n\n")
+
 
 def log_output(operation, output, query=None):
     """adds to a markdown file"""
@@ -103,5 +108,8 @@ def example_transform(df):
     )
 
     log_output("transform data", df.limit(10).toPandas().to_markdown())
+
+###
+
 
     return df.show()
